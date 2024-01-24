@@ -6,7 +6,6 @@ public class ex02 {
         int lado = 7;
         int altura = 10;
         int area = lado * altura;
-
         System.out.println(area);
     }
 }

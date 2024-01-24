@@ -2,7 +2,6 @@
 //valores.
 
 public class ex01 {
-
     public static void main(String[] args){
         int w = 7;
         int x = 10;
