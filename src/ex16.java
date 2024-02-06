@@ -20,33 +20,22 @@ public class ex16 {
         int codigo = scanner.nextInt();
 
         if (codigo >= 1 && codigo <= 3) {
-            double percentualReajuste = 0;
+            double  valorReajuste = 0;
 
             if (codigo == 1) {
-                percentualReajuste = 0.05;
+                valorReajuste = salarioAtual * 0.05;
             } else if (codigo == 2) {
-                percentualReajuste = 0.10;
+                valorReajuste = salarioAtual * 0.10;
             } else {
-                percentualReajuste = 0.15;
+                valorReajuste = salarioAtual * 0.15;
             }
 
-            double valorReajuste = salarioAtual * percentualReajuste;
             double salarioNovo = salarioAtual + valorReajuste;
-
-            String funcao = "";
-            if (codigo == 1) {
-                funcao = "Operador";
-            } else if (codigo == 2) {
-                funcao = "Programador";
-            } else {
-                funcao = "Analista";
-            }
 
             System.out.println("\nResultados:");
             System.out.println("Salário antigo: R$ " + salarioAtual);
             System.out.println("Novo salário: R$ " + salarioNovo);
             System.out.println("Valor do reajuste: R$ " + valorReajuste);
-            System.out.println("Função do funcionário: " + funcao);
         } else {
             System.out.println("Código de função inválido.");
         }
