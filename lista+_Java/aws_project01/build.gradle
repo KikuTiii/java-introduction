@@ -1,0 +1,47 @@
+buildscript {
+    ext {
+        springBootVersion = '3.3.2'
+    }
+    repositories {
+        mavenCentral()
+        maven {
+            url = uri('https://plugins.gradle.org/m2/')
+        }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("gradle.plugin.com.palantir.gradle.docker:gradle-docker:0.22.1")
+    }
+}
+
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.3.2'
+    id 'io.spring.dependency-management' version '1.1.6'
+    id 'com.palantir.docker' version '0.22.1'
+}
+
+group = 'aws_project01'
+version = '0.0.1-SNAPSHOT'
+
+bootJar {
+    baseName = 'aws_project01'
+    version =  '1.0.0'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
